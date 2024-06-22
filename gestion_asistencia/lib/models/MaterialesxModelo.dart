@@ -1,5 +1,4 @@
 
-import 'package:asistencia_app/modelo/ActividadModelo.dart';
 import 'package:gestion_asistencia/models/ActividadModelo.dart';
 import 'package:json_annotation/json_annotation.dart';
 

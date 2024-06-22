@@ -1,5 +1,4 @@
 
-import 'package:asistencia_app/modelo/ActividadModeloFire.dart';
 import 'package:flutter/material.dart';
 
 @immutable
