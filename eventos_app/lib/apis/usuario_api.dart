@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:eventos_app/util/UrlApi.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:retrofit/http.dart';
 
 part 'usuario_api.g.dart';
 

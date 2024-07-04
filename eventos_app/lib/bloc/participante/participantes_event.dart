@@ -1,5 +1,8 @@
 part of 'participante_bloc.dart';
 
+import 'package:eventos_app/models/ParticipanteModelo.dart';
+import 'package:flutter/foundation.dart';
+
 @immutable
 abstract class ParticipanteEvent {}
 

@@ -1,11 +1,13 @@
-import 'dart:nativewrappers/_internal/vm/lib/core_patch.dart';
-
 import 'package:dio/dio.dart';
+import 'package:eventos_app/util/UrlApi.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:retrofit/retrofit.dart';
+import 'package:eventos_app/models/EventoModelo.dart';
+import 'package:eventos_app/models/GenericModelo.dart';
 
-part 'evento_spi.g.dart';
+part 'evento_api.g.dart';
 
-@RestApi(baseUrl: UrlApi.urlApix)
+@RestApi(baseUrl: 'https://yourapi.url/')
 abstract class EventoApi {
   factory EventoApi(Dio dio, {String baseUrl}) = _EventoApi;
 
@@ -15,24 +17,33 @@ abstract class EventoApi {
     return EventoApi(dio);
   }
 
+  @GET("/asis/evento/list")
+  Future<List<EventoModelo>> getEvento(
+    @Header("Authorization") String token,
+  );
 
-@GET("/asis/eveto/list")
-Future<List<EventoModelo>> getEvento(@Header("Authorization") String token, @Body() EventoModelo evento);
+  @POST("/asis/evento/crear")
+  Future<EventoModelo> createEvento(
+    @Header("Authorization") String token,
+    @Body() EventoModelo evento,
+  );
 
-@POST("/asis/eveto/crear")
-Future<EventoModelo> findEvento(
-  @Header("Authorization") String token, @Path("id") int id);
+  @GET("/asis/evento/buscar/{id}")
+  Future<EventoModelo> findEvento(
+    @Header("Authorization") String token,
+    @Path("id") int id,
+  );
 
-@GET("/asis/eveto/buscar/{id}")
-Future<EventoModelo> findEvento(
-  @Header("Authorization") String token, @Path{"id"} int id);
+  @DELETE("/asis/evento/eliminar/{id}")
+  Future<GenericModelo> deleteEvento(
+    @Header("Authorization") String token,
+    @Path("id") int id,
+  );
 
-@DELETE("/asis/eveto/eliminar/{id}")
-Future<EventoModelo> findEvento(
-  @Header("Authorization") String token, @Path("id") int id);
-
-@PUT("/asis/eveto/editar/{id}")
-Future<EventoModelo> updateEvento(
-  @Header("Autorization") String token,@Path("id") int id);
-
+  @PUT("/asis/evento/editar/{id}")
+  Future<EventoModelo> updateEvento(
+    @Header("Authorization") String token,
+    @Path("id") int id,
+    @Body() EventoModelo evento,
+  );
 }

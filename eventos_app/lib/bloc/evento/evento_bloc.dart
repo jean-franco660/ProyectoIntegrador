@@ -1,7 +1,8 @@
-import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:eventos_app/bloc/evento/evento_event.dart';
+import 'package:eventos_app/bloc/evento/evento_state.dart';
+import 'package:eventos_app/models/EventoModelo.dart';
 
 
 part 'evento_state.dart';

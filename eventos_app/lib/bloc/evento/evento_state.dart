@@ -1,6 +1,9 @@
 part of 'empresa_bloc.dart';
 
-@Immutable
+import 'package:eventos_app/models/EventoModelo.dart';
+import 'package:meta/meta.dart';
+
+@Immutable()
 abstract class EventoState {}
 
 class EventoInitialState extends EventoState {}
@@ -8,7 +11,7 @@ class EventoInitialState extends EventoState {}
 class EventoLoadingState extends EventoState {}
 
 class EventoLoadedState extends EventoState {
-  List<evento> EventoList;
+  List<EventoModelo> EventoList;
 
   EventoLoadedState(this.EventoList);
 }

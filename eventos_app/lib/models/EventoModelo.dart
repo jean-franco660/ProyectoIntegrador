@@ -1,27 +1,44 @@
+import 'package:eventos_app/models/ParticipanteModelo.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:eventos_app/models/DireccionModelo.dart';
+import 'package:eventos_app/models/EventoModeloFire.dart';
 
+part 'EventoModeloFire.dart';
 
 @JsonSerializable()
 class EventoModelo {
+  @JsonKey(name: 'id')
+  int? id;
 
-  late int id=0;
-  late final String nombre;
-  late final String descripcion;
-  late final String fechaInicio;
-  late final String fechaFin;
-  late final int fincaId;
+  @JsonKey(name: 'nombre')
+  String nombre;
+
+  @JsonKey(name: 'descripcion')
+  String descripcion;
+
+  @JsonKey(name: 'fecha_inicio')
+  String fechaInicio;
+
+  @JsonKey(name: 'fecha_fin')
+  String fechaFin;
+
+  @JsonKey(name: 'participantes')
+  List<ParticipanteModelo> participantes;
+
+  @JsonKey(name: 'direccion')
+  DireccionModelo direccion;
 
   EventoModelo({
-    required this.id,
+    this.id,
     required this.nombre,
     required this.descripcion,
     required this.fechaInicio,
     required this.fechaFin,
-    required this.fincaId,
+    required this.participantes,
+    required this.direccion,
   });
-  EventoModelo.unlaunched();
 
-  factory EventoModelo.fromJson(Map<String, dynamic> json) => _$EventoModeloFromJson(json);
+  static fromJson(Map<String, dynamic> i) {}
 
-  Map<String, dynamic> toJson() => _$EventoModeloToJson(this);
+
 }

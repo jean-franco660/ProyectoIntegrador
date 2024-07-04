@@ -1,5 +1,8 @@
 part of 'empresa_bloc.dart';
 
+import 'package:eventos_app/models/EventoModelo.dart';
+import 'package:flutter/foundation.dart';
+
 @immutable
 abstract class EventoEvent {}
 
@@ -10,23 +13,23 @@ class ListarEventoEvent extends EventoEvent {
 //ListarEmpresaEvent({required EmpresaModelo empresa}):super(empresa:empresa);
 }
 
-class DeleteEmpresaEvent extends EventoEvent {
+class DeleteEventoEvent extends EventoEvent {
   EventoModelo evento;
 
-  DeleteEmpresaEvent(this.evento);
+  DeleteEventoEvent(this.evento);
 //DeleteEmpresaEvent({required EmpresaModelo empresa}):super(empresa:empresa);
 }
 
-class UpdateEmpresaEvent extends EventoEvent {
+class UpdateEventoEvent extends EventoEvent {
   EventoModelo evento;
 
-  UpdateEmpresaEvent(this.evento);
+  UpdateEventoEvent(this.evento);
 //UpdateEmpresaEvent({required EmpresaaModelo empresa}):super(empresa:empresa);
 }
 
-class CreateEmpresaEvent extends EventoEvent {
+class CreateEventoEvent extends EventoEvent {
   EventoModelo evento;
 
-  CreateEmpresaEvent(this.evento);
+  CreateEventoEvent(this.evento);
 //CreateEmpresaEvent({required EmpresaModelo empresa}):super(empresa:empresa);
 }
